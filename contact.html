@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Una Tourism Contact</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+    background-size:cover;
+    background-position:center;
+    overflow-x:hidden;
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+}
+
+/* CONTACT BOX */
+
+.contact-box{
+    width:100%;
+    max-width:550px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:30px;
+    padding:45px;
+    color:white;
+    box-shadow:0 15px 45px rgba(0,0,0,0.4);
+    animation:fadeIn 1s ease;
+}
+
+.contact-box h2{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.contact-box p{
+    text-align:center;
+    color:#eee;
+    margin-bottom:35px;
+    font-size:15px;
+}
+
+/* INPUTS */
+
+.input-group{
+    margin-bottom:22px;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:rgba(255,255,255,0.18);
+    color:white;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+    background:rgba(255,255,255,0.28);
+    transform:scale(1.01);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder{
+    color:#f1f1f1;
+}
+
+textarea{
+    height:130px;
+    resize:none;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(to right,#0072ff,#00c6ff);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    transform:translateY(-2px) scale(1.02);
+    box-shadow:0 10px 25px rgba(0,198,255,0.4);
+}
+
+/* ERROR */
+
+.error{
+    color:#ffb3b3;
+    font-size:13px;
+    margin-top:6px;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    top:-300px;
+    left:50%;
+    transform:translateX(-50%);
+    transition:0.5s ease;
+    z-index:1000;
+}
+
+.popup.show{
+    top:35px;
+}
+
+.popup-box{
+    width:390px;
+    max-width:90%;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 20px 45px rgba(0,0,0,0.4);
+    animation:popupAnim 0.5s ease;
+}
+
+.popup-box h2{
+    color:#28a745;
+    margin-bottom:12px;
+    font-size:30px;
+}
+
+.popup-box p{
+    color:#555;
+    font-size:16px;
+    line-height:1.6;
+}
+
+/* FOOTER */
+
+.footer{
+    margin:30px 20px;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(12px);
+    border-radius:30px;
+    padding:50px 30px 25px;
+    color:white;
+    border:1px solid rgba(255,255,255,0.15);
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.footer-box h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.footer-box h3{
+    font-size:24px;
+    margin-bottom:15px;
+    color:#00c6ff;
+}
+
+.footer-box p{
+    color:#ddd;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+/* SOCIAL ICONS */
+
+.social-icons{
+    margin-top:20px;
+}
+
+.social-icons a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    text-decoration:none;
+    font-size:24px;
+    margin-right:12px;
+    transition:0.4s;
+}
+
+.social-icons a:hover{
+    transform:translateY(-5px) scale(1.1);
+    background:#00c6ff;
+}
+
+/* CONTACT INFO */
+
+.contact-info p{
+    margin-bottom:15px;
+    font-size:16px;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    text-align:center;
+    color:#bbb;
+    font-size:15px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes popupAnim{
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+    .contact-box{
+        padding:30px 22px;
+    }
+
+    .contact-box h2{
+        font-size:30px;
+    }
+
+    .footer{
+        padding:40px 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SUCCESS POPUP -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <h2>🎉 Registration Successful</h2>
+
+        <p>
+            Your inquiry has been submitted successfully for Una Tourism.
+            Our team will contact you soon ✨
+        </p>
+
+    </div>
+
+</div>
+
+<!-- CONTACT FORM -->
+
+<div class="container">
+
+    <div class="contact-box">
+
+        <h2>Contact Una Tourism</h2>
+
+        <p>
+            Explore beautiful destinations, temples and mountains of Una District 🌄
+        </p>
+
+        <form id="contactForm">
+
+            <div class="input-group">
+
+                <input type="text" id="name"
+                placeholder="Enter Your Name">
+
+                <div class="error" id="nameError"></div>
+
+            </div>
+
+            <div class="input-group">
+
+                <input type="email" id="email"
+                placeholder="Enter Your Email">
+
+                <div class="error" id="emailError"></div>
+
+            </div>
+
+            <div class="input-group">
+
+                <input type="tel" id="phone"
+                placeholder="Enter Your Phone Number">
+
+                <div class="error" id="phoneError"></div>
+
+            </div>
+
+            <div class="input-group">
+
+                <textarea id="message"
+                placeholder="Write Your Message"></textarea>
+
+                <div class="error" id="messageError"></div>
+
+            </div>
+
+            <button type="submit">
+                Submit Inquiry
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- ABOUT -->
+
+        <div class="footer-box">
+
+            <h2>Una Tourism</h2>
+
+            <p>
+                Discover the beauty of Una District,
+                Himachal Pradesh with amazing nature,
+                temples, hills and peaceful destinations ✨
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#">📘</a>
+
+                <a href="#">📸</a>
+
+                <a href="#">▶️</a>
+
+                <a href="#">🌐</a>
+
+            </div>
+
+        </div>
+
+        <!-- CONTACT INFO -->
+
+        <div class="footer-box contact-info">
+
+            <h3>Contact Information</h3>
+
+            <p>📍 Una, Himachal Pradesh, India</p>
+
+            <p>📞 +91 9816103246</p>
+
+            <p>✉ unatourism@gmail.com</p>
+
+            <p>🕒 Mon - Sat : 9 AM - 7 PM</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 Una Tourism | Designed by Divya ✨
+
+    </div>
+
+</footer>
+
+<script>
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let valid = true;
+
+    let name = document.getElementById("name").value.trim();
+
+    let email = document.getElementById("email").value.trim();
+
+    let phone = document.getElementById("phone").value.trim();
+
+    let message = document.getElementById("message").value.trim();
+
+    // CLEAR ERRORS
+
+    document.getElementById("nameError").innerHTML = "";
+
+    document.getElementById("emailError").innerHTML = "";
+
+    document.getElementById("phoneError").innerHTML = "";
+
+    document.getElementById("messageError").innerHTML = "";
+
+    // NAME
+
+    if(name === ""){
+
+        document.getElementById("nameError").innerHTML =
+        "Please enter your name";
+
+        valid = false;
+    }
+
+    // EMAIL
+
+    if(email === ""){
+
+        document.getElementById("emailError").innerHTML =
+        "Please enter your email";
+
+        valid = false;
+    }
+
+    // PHONE VALIDATION
+
+    let phonePattern = /^[6-9]\d{9}$/;
+
+    if(!phonePattern.test(phone)){
+
+        document.getElementById("phoneError").innerHTML =
+        "Enter valid 10-digit phone number";
+
+        valid = false;
+    }
+
+    // MESSAGE
+
+    if(message === ""){
+
+        document.getElementById("messageError").innerHTML =
+        "Please enter your message";
+
+        valid = false;
+    }
+
+    // POPUP
+
+    if(valid){
+
+        let popup = document.getElementById("popup");
+
+        popup.classList.add("show");
+
+        setTimeout(()=>{
+
+            popup.classList.remove("show");
+
+        },3000);
+
+        form.reset();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

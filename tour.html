@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Explore Una - Tourism</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+<div class="logo">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4T6SVmhb4STbXaCC8Pno3gb6Mj5_vsjiHbA&s">
+<h2>Explore Una</h2>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#places">Places</a>
+<a href="#blocks">Blocks</a>
+<a href="#gallery">Gallery</a>
+<a href="#map">Map</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Explore Beautiful Una</h1>
+<p>Temples • Nature • Hills • Peace</p>
+</div>
+</section>
+
+<!-- PLACES -->
+<h2 class="title" id="places">Top Attractions</h2>
+
+<section class="cards">
+
+<div class="card">
+<img src="https://travelknots.wordpress.com/wp-content/uploads/2015/03/jwala-devi-5.jpg">
+<div class="card-content">
+<h3>Chintpurni Temple</h3>
+<a class="map-btn" target="_blank" href="https://www.google.com/maps?q=Chintpurni+Temple+Una">View Map</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://hblimg.mmtcdn.com/content/hubble/img/una_imgs/mmt/activities/m_Pong_lake_3_l_331_587.jpg">
+<div class="card-content">
+<h3>Pong Dam</h3>
+<a class="map-btn" target="_blank" href="https://www.google.com/maps?q=Pong+Dam+Himachal+Pradesh">View Map</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://tricitytimes.com/wp-content/uploads/2023/07/Screenshot_20230703-205917.jpg">
+<div class="card-content">
+<h3>Dera Baba Bharbhag</h3>
+<a class="map-btn" target="_blank" href="https://www.google.com/maps?q=Dera+Baba+Bharbhag+Singh+Una">View Map</a>
+</div>
+</div>
+
+</section>
+
+<!-- BLOCKS -->
+<section class="blocks" id="blocks">
+
+<h2 class="title">Explore Blocks of Una</h2>
+
+<div class="block-grid">
+
+<!-- UNA -->
+<div class="block-card" onclick="openMap('Una Himachal Pradesh')">
+<img src="data:image/jpeg;base64,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">
+<div class="block-content">
+<h3>Una</h3>
+<p>Main district hub with markets, education & city life.</p>
+<span>Urban</span>
+</div>
+</div>
+
+<!-- AMB -->
+<div class="block-card" onclick="openMap('Amb Himachal Pradesh')">
+<img src="https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format=webp,w=720/1abTdDbfQOKDVM93bbk0d7dQGFTJv6o90vl6J6mm">
+<div class="block-content">
+<h3>Amb</h3>
+<p>Peaceful town known for temples and greenery.</p>
+<span>Spiritual</span>
+</div>
+</div>
+
+<!-- GAGRET -->
+<div class="block-card" onclick="openMap('Gagret Himachal Pradesh')">
+<img src="https://npgagret.in/assets/img/IMG-20231001-WA0004.jpg">
+<div class="block-content">
+<h3>Gagret</h3>
+<p>Fast growing industrial and business town.</p>
+<span>Industrial</span>
+</div>
+</div>
+
+<!-- HAROLI -->
+<div class="block-card" onclick="openMap('Haroli Himachal Pradesh')">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRohQdwcc-dEXirpPcEnEi2Brs0tKfNEuWW4w&s">
+<div class="block-content">
+<h3>Haroli</h3>
+<p>Beautiful rural landscapes and agriculture fields.</p>
+<span>Rural</span>
+</div>
+</div>
+
+<!-- BANGANA -->
+<div class="block-card" onclick="openMap('Bangana Himachal Pradesh')">
+<img src="https://upload.wikimedia.org/wikipedia/en/8/83/View_of_Small_Kutlehar_fort_and_Bangana_valley_from_Kutlehar_fort.png">
+<div class="block-content">
+<h3>Bangana</h3>
+<p>Hilly region with peaceful natural environment.</p>
+<span>Hills</span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<h2 class="title">Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/e3/51/18/religious-place.jpg?w=1200&h=-1&s=1">
+<img src="https://mysterioushimachal.wordpress.com/wp-content/uploads/2017/02/bhakra-nangal-dam.jpg">
+<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/fa/5d/4f/caption.jpg?w=1000&h=800&s=1">
+<img src="https://i.cdn.newsbytesapp.com/images/l71820231219172009.jpeg">
+
+</div>
+
+<!-- 👇 CENTER BUTTON -->
+<div class="gallery-btn-container">
+<a href="gallery.html" class="view-more-btn">View More Gallery</a>
+</div>
+
+</section>
+<!-- LIVE WEATHER -->
+<section class="weather-section">
+
+<h2 class="title">Live Weather - Una</h2>
+
+<div class="weather-card">
+
+<div class="weather-left">
+<h3>Una, Himachal Pradesh</h3>
+<p id="temp">Loading...</p>
+<p id="condition"></p>
+</div>
+
+<div class="weather-right">
+<img id="weather-icon" src="" alt="">
+</div>
+
+</div>
+
+</section>
+<!-- MAP -->
+<section class="map" id="map">
+<h2 class="title">Live Una Map</h2>
+
+<iframe src="https://maps.google.com/maps?q=Una%20Himachal%20Pradesh&output=embed"></iframe>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-container">
+
+<!-- ABOUT -->
+<div class="footer-box">
+<h3>Explore Una</h3>
+<p>Discover the beauty of Una, Himachal Pradesh — temples, nature, hills and peaceful destinations.</p>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="#home">Home</a>
+<a href="#places">Places</a>
+<a href="#blocks">Blocks</a>
+<a href="#gallery">Gallery</a>
+<a href="#map">Map</a>
+</div>
+
+<!-- CONTACT -->
+ 
+<div class="footer-box">
+<h3>Contact</h3>
+<p>Email: exploreuna@gmail.com</p>
+<p>Phone: +91 9816103246</p>
+<p>Una, Himachal Pradesh</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Explore Una | Made with ❤️ by Divya</p>
+</div>
+
+</footer>
+<script>
+    
+function openImg(img){
+    document.getElementById("popup").style.display="flex";
+    document.getElementById("popupImg").src = img.src;
+}
+
+function openMap(place){
+    window.open("https://www.google.com/maps?q=" + place + " Himachal Pradesh");
+}
+
+</script>
+<script>
+
+const apiKey = "eb7fb416e86897498a14f12db9f371a6";
+
+async function getWeather() {
+
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=Una&appid=${apiKey}&units=metric`;
+
+    try {
+
+        let response = await fetch(url);
+        let data = await response.json();
+
+        console.log(data);
+
+        if(data.cod != 200){
+            document.getElementById("temp").innerHTML =
+            "API Error";
+            return;
+        }
+
+        document.getElementById("temp").innerHTML =
+        Math.round(data.main.temp) + "°C";
+
+        document.getElementById("condition").innerHTML =
+        data.weather[0].main;
+
+        document.getElementById("weather-icon").src =
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        document.getElementById("temp").innerHTML =
+        "Weather not loading";
+    }
+}
+
+getWeather();
+
+</script>
+</body>
+</html>
